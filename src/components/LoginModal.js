@@ -152,9 +152,9 @@ function LoginModal({ isOpen, closeModal }) {
               </div>
 
               <button
+                type="submit"
                 disabled={errors.email || errors.password}
                 className={styles.button}
-                type="submit"
               >
                 Log in
               </button>
