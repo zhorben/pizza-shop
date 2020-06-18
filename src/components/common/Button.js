@@ -3,7 +3,7 @@ import { css } from 'astroturf'
 
 const styles = css`
   .button {
-    background-color: #c8102e;
+    background-color: rgb(30, 48, 110);
     border-radius: 0.5rem;
     color: #fff;
     cursor: pointer;
@@ -13,6 +13,11 @@ const styles = css`
     padding: 0 1rem;
     text-align: center;
     min-width: 10rem;
+    transition: background-color 150ms ease-out 0s;
+
+    &:hover {
+      background-color: rgb(82, 102, 153);
+    }
   }
 `
 

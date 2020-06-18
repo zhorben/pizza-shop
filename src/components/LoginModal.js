@@ -1,9 +1,12 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import cx from 'classnames'
 import { css } from 'astroturf'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Modal from 'react-modal'
 import closeIcon from '../images/close.svg'
+
+import { login } from '../redux/actions/auth'
 
 // http://reactcommunity.org/react-modal/styles/ - default styles
 const modalStyles = {
@@ -38,7 +41,7 @@ const styles = css`
   }
 
   .button {
-    background-color: rgb(130, 179, 0);
+    background-color: rgb(30, 48, 110);
     color: rgb(255, 255, 255);
     cursor: pointer;
     font-family: 'Open Sans';
@@ -50,12 +53,17 @@ const styles = css`
     border-radius: 0.5rem;
     margin: 2rem 0px 0px;
     padding: 0px 1rem;
+    transition: background-color 150ms ease-out 0s;
+
+    &:hover {
+      background-color: rgb(82, 102, 153);
+    }
 
     &:disabled {
-      background-color: rgb(130, 179, 0);
-      color: rgb(255, 255, 255);
-      cursor: not-allowed;
       opacity: 0.5;
+      color: rgb(255, 255, 255);
+      background-color: rgb(30, 48, 110);
+      cursor: not-allowed;
     }
   }
 
@@ -96,7 +104,14 @@ const styles = css`
   }
 `
 
-function LoginModal({ isOpen, closeModal }) {
+export default function LoginModal({ isOpen, closeModal }) {
+  const dispatch = useDispatch()
+
+  const handleSubmit = async (event) => {
+    await dispatch(login(event))
+    closeModal()
+  }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -107,7 +122,10 @@ function LoginModal({ isOpen, closeModal }) {
     >
       <img className={styles.close} src={closeIcon} onClick={closeModal} />
 
-      <Formik initialValues={{ email: '', password: '' }} onSubmit={() => null}>
+      <Formik
+        initialValues={{ email: 'user1@mail.com', password: '123123' }}
+        onSubmit={handleSubmit}
+      >
         {({ errors, touched }) => {
           return (
             <Form>
@@ -165,5 +183,3 @@ function LoginModal({ isOpen, closeModal }) {
     </Modal>
   )
 }
-
-export default LoginModal

@@ -1,4 +1,5 @@
 const path = require('path')
+const config = require('./config')
 const { v4: uuidv4 } = require('uuid')
 const Koa = require('koa')
 const Router = require('koa-router')
@@ -8,12 +9,7 @@ const mustBeAuthenticated = require('./libs/mustBeAuthenticated')
 
 const { login } = require('./controllers/login')
 const { me } = require('./controllers/me')
-const {
-  productsBySubcategory,
-  productsByQuery,
-  productList,
-  productById
-} = require('./controllers/products')
+const { productList } = require('./controllers/products')
 const { checkout, getOrdersList } = require('./controllers/orders')
 
 const app = new Koa()
@@ -72,10 +68,7 @@ router.use(async (ctx, next) => {
 
 router.post('/login', login)
 router.get('/me', mustBeAuthenticated, me)
-
-router.get('/products', productsBySubcategory, productsByQuery, productList)
-router.get('/products', productsBySubcategory, productList)
-router.get('/products/:id', productById)
+router.get('/products', productList)
 
 router.get('/orders', mustBeAuthenticated, getOrdersList)
 router.post(
@@ -98,4 +91,8 @@ app.use(router.routes())
 //   ctx.body = index
 // })
 
-module.exports = app
+const port = parseInt(config.port, 10) || 3000
+
+app.listen(port, () => {
+  console.log(`App is running on http://localhost:${port}`)
+})

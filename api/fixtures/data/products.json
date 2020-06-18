@@ -1,0 +1,74 @@
+[
+  {
+    "title": "CLASSICA PIZZA",
+    "description": "HAM, MUCHROOMS, MOZZARELLA, HERB TOMATO SAUCE",
+    "price": "60",
+    "images": [
+      "https://ocs-pl.oktawave.com/v1/AUTH_876e5729-f8dd-45dd-908f-35d8bb716177/amrest-web-ordering/Pizza%20Hut%20PL/NEW%20WWW/1000px_left_classica.jpg"
+    ]
+  },
+  {
+    "title": "PROSCIUTTO E RUCOLA PIZZA",
+    "description": "MATURED HAM, CORREGIO CHEESE, CHERRY TOMATOES, ROCKET, MOZZARELLA, HERB TOMATO SAUCE",
+    "price": "60",
+    "images": [
+      "https://ocs-pl.oktawave.com/v1/AUTH_876e5729-f8dd-45dd-908f-35d8bb716177/amrest-web-ordering/Pizza%20Hut%20PL/NEW%20WWW/1000px_left_proscerucola.jpg"
+    ]
+  },
+  {
+    "title": "HAWAIIAN PIZZA",
+    "description": "HAM, PINEAPPLE, MOZZARELLA CHEESE, HERB TOMATO SAUCE",
+    "price": "60",
+    "images": [
+      "https://ocs-pl.oktawave.com/v1/AUTH_876e5729-f8dd-45dd-908f-35d8bb716177/amrest-web-ordering/Pizza%20Hut%20PL/NEW%20WWW/1000px_left_hawaiian.jpg"
+    ]
+  },
+  {
+    "title": "PEPPERONI PIZZA",
+    "description": "PEPPERONI SAUSAGE, MOZZARELLA, HERB TOMATO SAUCE",
+    "price": "60",
+    "images": [
+      "https://ocs-pl.oktawave.com/v1/AUTH_876e5729-f8dd-45dd-908f-35d8bb716177/amrest-web-ordering/Pizza%20Hut%20PL/NEW%20WWW/1000px_left_pepperoni.jpg"
+    ]
+  },
+  {
+    "title": "SUPER SUPREME PIZZA",
+    "description": "PEPPERONI, BEEF, SPICY PORK, HAM, ONION, GREEN PEPPERS, MUSHROOMS, BLACK OLIVES, MOZZARELLA, HERBAL TOMATO SAUCE",
+    "price": "60",
+    "images": [
+      "https://ocs-pl.oktawave.com/v1/AUTH_876e5729-f8dd-45dd-908f-35d8bb716177/amrest-web-ordering/Pizza%20Hut%20PL/NEW%20WWW/1000px_left_supersupreme.jpg"
+    ]
+  },
+  {
+    "title": "VEGE MANIA PIZZA",
+    "description": "MUSHROOMS, FRESH SPINACH, PEPPER MIX, CHERRY TOMATOES, RED ONION, FRESH MOZZARELLA, CORREGIO, MOZZARELLA CHEESE, HERB TOMATO SAUCE",
+    "price": "60",
+    "images": [
+      "https://ocs-pl.oktawave.com/v1/AUTH_876e5729-f8dd-45dd-908f-35d8bb716177/amrest-web-ordering/Pizza%20Hut%20PL/NEW%20WWW/1000px_left_vege.jpg"
+    ]
+  },
+  {
+    "title": "TEXAS PIZZA",
+    "description": "GRILLED CHICKEN, CORN, RED ONION, MOZZARELLA, BBQ SAUCE",
+    "price": "60",
+    "images": [
+      "https://ocs-pl.oktawave.com/v1/AUTH_876e5729-f8dd-45dd-908f-35d8bb716177/amrest-web-ordering/Pizza%20Hut%20PL/NEW%20WWW/1000px_left_texas.jpg"
+    ]
+  },
+  {
+    "title": "MARGHERITA PIZZA",
+    "description": "MOZARELLA CHEESE, HERB TOMATO SAUCE",
+    "price": "60",
+    "images": [
+      "https://ocs-pl.oktawave.com/v1/AUTH_876e5729-f8dd-45dd-908f-35d8bb716177/amrest-web-ordering/Pizza%20Hut%20PL/NEW%20WWW/1000px_left_margherita.jpg"
+    ]
+  },
+  {
+    "title": "CARBONARA PIZZA",
+    "description": "BACON, TOMATOES, MUSHROOMS, ONION, CORREGIO CHEESE, MOZZARELLA, WHITE SAUCE",
+    "price": "60",
+    "images": [
+      "https://ocs-pl.oktawave.com/v1/AUTH_876e5729-f8dd-45dd-908f-35d8bb716177/amrest-web-ordering/Pizza%20Hut%20PL/NEW%20WWW/1000px_left_carbonara.jpg"
+    ]
+  }
+]

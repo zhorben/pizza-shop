@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
+  background: #f4f4f4;
 }
 
 code {
@@ -26,4 +27,8 @@ code {
 button,
 button span {
   border: none;
+}
+
+button:focus {
+  outline: none;
 }
