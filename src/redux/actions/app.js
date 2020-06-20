@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS } from '../constants'
+import { LOGIN_REQUEST, LOGIN_SUCCESS, TOGGLE_CART } from '../constants'
 
 export const login = (event) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST })
@@ -18,3 +18,8 @@ export const login = (event) => async (dispatch) => {
     payload: { token }
   })
 }
+
+export const toggleCart = (value) => ({
+  type: TOGGLE_CART,
+  payload: { value }
+})

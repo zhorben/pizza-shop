@@ -1,0 +1,131 @@
+.ProductList {
+  padding: 4.5rem 2rem;
+  max-width: 112rem;
+  position: absolute;
+  left: 50%;
+  top: 5.5rem;
+  transform: translate(-50%, 0);
+  width: 100%;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 123rem;
+    margin: 0 auto;
+  }
+
+  &__title {
+    position: relative;
+    color: rgb(49, 49, 49);
+    font-size: 2.4rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin: 0 0 4.5rem;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      flex-grow: 1;
+      min-width: 2rem;
+      border-bottom: 1px solid rgb(30, 48, 110);
+    }
+
+    &:before {
+      margin-right: 2rem;
+    }
+
+    &:after {
+      margin-left: 2rem;
+    }
+  }
+
+  .Product {
+    display: flex;
+    flex-direction: column;
+    width: calc((100% - 6rem) / 4);
+    margin-bottom: 3rem;
+    background: #fff;
+
+    &:not(:nth-of-type(4n)) {
+      margin-right: 2rem;
+    }
+
+    &__link_image {
+      position: relative;
+      padding-top: 100%;
+      overflow: hidden;
+    }
+
+    &__container_image {
+      height: 100%;
+    }
+
+    &__image {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      max-height: 100%;
+    }
+
+    &__content {
+      padding: 1.5rem;
+    }
+
+    &__title,
+    &__description {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    &__title {
+      font-family: 'Open Sans';
+      font-weight: 700;
+      font-size: 1.6rem;
+      height: 4.4rem;
+    }
+
+    &__description {
+      color: rgb(122, 133, 141);
+      font-size: 1.4rem;
+      height: 3.8rem;
+      margin: 1.5rem 0 0;
+    }
+
+    &__footer {
+      padding: 1.5rem;
+      border-top: 1px solid rgb(233, 235, 238);
+      display: flex;
+      align-items: center;
+    }
+
+    &__price {
+      font-size: 1.8rem;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    &__button {
+      flex: 1;
+      background-color: rgb(30, 48, 110);
+      color: rgb(255, 255, 255);
+      font-family: 'Open Sans';
+      font-size: 1.4rem;
+      height: 3.6rem;
+      border: none;
+      border-radius: 0.5rem;
+      margin: 0 0 0 10px;
+      padding: 0px 1rem;
+      cursor: pointer;
+      transition: background-color 150ms ease-out 0s;
+
+      &:hover {
+        background-color: rgb(82, 102, 153);
+      }
+    }
+  }
+}

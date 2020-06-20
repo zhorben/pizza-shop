@@ -1,12 +1,17 @@
+import './App.scss'
 import React from 'react'
 import Header from './Header'
-import ProductList from './ProductList'
+import ProductList from './products/ProductList'
+import ShoppingCart from './order/ShoppingCart'
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <ProductList />
+      <div className="App__content">
+        <ProductList />
+        <ShoppingCart />
+      </div>
     </div>
   )
 }

@@ -1,13 +1,29 @@
+import { OrderedMap, Record, Set } from 'immutable'
+import { arrToImmutableMap } from '../utils'
+
 import { FETCH_PRODUCTS_SUCCESS } from '../constants'
 
-const initialState = {
-  entities: []
-}
+const ProductRecord = Record({
+  id: null,
+  title: '',
+  description: '',
+  price: null,
+  images: []
+})
 
-export default function reducer(state = initialState, { type, payload }) {
+const ReducerRecord = Record({
+  entities: new OrderedMap()
+})
+
+export default function reducer(
+  state = new ReducerRecord(),
+  { type, payload }
+) {
   switch (type) {
     case FETCH_PRODUCTS_SUCCESS:
-      return { ...state, entities: payload.products }
+      return state.update('entities', (entities) =>
+        entities.merge(arrToImmutableMap(payload.products, ProductRecord))
+      )
     default:
       return state
   }

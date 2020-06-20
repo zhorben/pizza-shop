@@ -6,7 +6,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Modal from 'react-modal'
 import closeIcon from '../images/close.svg'
 
-import { login } from '../redux/actions/auth'
+import { login } from '../redux/actions/app'
 
 // http://reactcommunity.org/react-modal/styles/ - default styles
 const modalStyles = {

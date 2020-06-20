@@ -1,43 +1,17 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { css } from 'astroturf'
+import { useSelector, useDispatch } from 'react-redux'
 import Button from './common/Button'
 import LoginModal from './LoginModal'
 import logo from '../images/logo.png'
 import { ReactComponent as CartSVG } from '../images/cart.svg'
 
-const styles = css`
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 5.5rem;
-    padding: 0 2rem;
-    border-bottom: 1px solid #e9ebee;
-  }
-
-  .logo {
-    height: 4rem;
-  }
-
-  .cartWrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .icon {
-    width: 24px;
-    height: 18px;
-    padding: 5px;
-    box-sizing: content-box;
-    margin-right: 2rem;
-    cursor: pointer;
-  }
-`
+import { toggleCart } from '../redux/actions/app'
+import { tokenSelector } from '../redux/selectors'
 
 export default function Header() {
   const [isOpen, toggleModal] = useState(false)
-  const token = useSelector((state) => state.auth.token)
+  const token = useSelector(tokenSelector)
+  const dispatch = useDispatch()
 
   const logout = async () => {
     localStorage.removeItem('token')
@@ -45,12 +19,15 @@ export default function Header() {
   }
 
   return (
-    <div className={styles.header}>
-      <img className={styles.logo} src={logo} />
+    <header className="Header">
+      <img className="logo" src={logo} />
 
       {token ? (
-        <div className={styles.cartWrapper}>
-          <CartSVG className={styles.icon} />
+        <div className="Header__container">
+          <CartSVG
+            className="Header__icon"
+            onClick={() => dispatch(toggleCart())}
+          />
           <Button onClick={logout}>Log out</Button>
         </div>
       ) : (
@@ -58,6 +35,6 @@ export default function Header() {
       )}
 
       <LoginModal isOpen={isOpen} closeModal={() => toggleModal(false)} />
-    </div>
+    </header>
   )
 }
