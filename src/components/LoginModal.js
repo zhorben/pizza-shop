@@ -48,10 +48,7 @@ export default function LoginModal({ isOpen, closeModal }) {
       <div className="LoginModal">
         <img className="LoginModal__icon_close" src={closeIcon} onClick={closeModal} alt="close" />
 
-        <Formik
-          initialValues={{ email: 'user1@mail.com', password: '123123' }}
-          onSubmit={handleSubmit}
-        >
+        <Formik initialValues={{ email: '', password: '' }} onSubmit={handleSubmit}>
           {({ errors, touched }) => {
             return (
               <Form>
