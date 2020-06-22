@@ -1,27 +1,21 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import './OrderItem.scss'
+import { useDispatch, useSelector } from 'react-redux'
 import { ReactComponent as RemoveSVG } from '../../images/remove.svg'
 
-import {
-  incrementProduct,
-  decrementProduct,
-  removeProduct
-} from '../../redux/actions/order'
+import { incrementProduct, decrementProduct, removeProduct } from '../../redux/actions/order'
 
-export default function OrderItem({
-  product: { id, title, price, description },
-  amount
-}) {
+import { productSelector } from '../../redux/selectors'
+
+export default function OrderItem({ id, amount }) {
   const dispatch = useDispatch()
+  const { title, price, description } = useSelector(productSelector(id))
 
   return (
     <div className="OrderItem">
       <div className="OrderItem__title">
         {title}
-        <RemoveSVG
-          className="OrderItem__icon_remove"
-          onClick={() => dispatch(removeProduct(id))}
-        />
+        <RemoveSVG className="OrderItem__icon_remove" onClick={() => dispatch(removeProduct(id))} />
       </div>
       <div className="OrderItem__description">{description}</div>
       <div className="OrderItem__footer">
@@ -30,7 +24,7 @@ export default function OrderItem({
           <div>{amount}</div>
           <button onClick={() => dispatch(incrementProduct(id))}>+</button>
         </div>
-        <div className="OrderItem__price">{price} USD</div>
+        <div className="OrderItem__price">{Math.floor(price * amount * 100) / 100} USD</div>
       </div>
     </div>
   )

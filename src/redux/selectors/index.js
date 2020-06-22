@@ -1,8 +1,11 @@
 import { createSelector } from 'reselect'
+import { DELIVERY_RATES } from '../../constants'
 
 export const tokenSelector = (state) => state.app.token
 
 export const showCartSelector = (state) => state.app.showCart
+
+export const ordersSelector = (state) => state.app.orders
 
 export const orderSelector = (state) => state.order
 
@@ -27,7 +30,8 @@ export const orderedProductsSelector = createSelector(
       .keySeq()
       .map((productId) => products.get(productId))
       .map((product) => ({
-        product,
+        product: product.id,
+        price: product.price,
         amount: order.get(product.id)
       }))
   }
@@ -36,9 +40,30 @@ export const orderedProductsSelector = createSelector(
 export const totalPriceSelector = createSelector(
   orderedProductsSelector,
   (orderedProducts) => {
-    return orderedProducts.reduce(
-      (acc, { product, amount }) => acc + product.price * amount,
+    const productsPrice = orderedProducts.reduce(
+      (acc, { price, amount }) => acc + price * amount,
       0
     )
+    const totalPrice = Math.floor((productsPrice + DELIVERY_RATES) * 100) / 100
+    return totalPrice
   }
 )
+
+export const orderHistorySelector = createSelector(
+  ordersSelector,
+  (orders) => orders.valueSeq().toArray()
+)
+
+export const orderHistoryTotalPriceSelector = (id) =>
+  createSelector(
+    ordersSelector,
+    (orders) => {
+      const order = orders.get(id)
+      const productsPrice = order.products.reduce(
+        (acc, { product, amount }) => acc + product.price * amount,
+        0
+      )
+      const totalPrice = Math.floor((productsPrice + DELIVERY_RATES) * 100) / 100
+      return totalPrice
+    }
+  )

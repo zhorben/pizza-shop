@@ -1,6 +1,7 @@
 .App {
   &__content {
     position: relative;
+    padding-top: 5.5rem;
   }
 
   .Header {
@@ -32,6 +33,13 @@
       margin-right: 2rem;
       cursor: pointer;
       user-select: none;
+    }
+
+    &__button_account {
+      font-size: 1.4rem;
+      margin-right: 2rem;
+      color: rgb(82, 82, 82);
+      text-decoration: none;
     }
   }
 }

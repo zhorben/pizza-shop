@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import Button from './common/Button'
 import LoginModal from './LoginModal'
@@ -11,6 +12,7 @@ import { tokenSelector } from '../redux/selectors'
 export default function Header() {
   const [isOpen, toggleModal] = useState(false)
   const token = useSelector(tokenSelector)
+  const pathname = useSelector((state) => state.router.location.pathname)
   const dispatch = useDispatch()
 
   const logout = async () => {
@@ -18,16 +20,25 @@ export default function Header() {
     window.location.href = '/'
   }
 
+  console.log(pathname, '--- pathname')
+
   return (
     <header className="Header">
-      <img className="logo" src={logo} />
+      <Link to="/">
+        <img className="logo" src={logo} />
+      </Link>
 
       {token ? (
         <div className="Header__container">
-          <CartSVG
-            className="Header__icon"
-            onClick={() => dispatch(toggleCart())}
-          />
+          {pathname !== '/account' && (
+            <React.Fragment>
+              <Link className="Header__button_account" to="/account">
+                Account
+              </Link>
+              <CartSVG className="Header__icon" onClick={() => dispatch(toggleCart())} />
+            </React.Fragment>
+          )}
+
           <Button onClick={logout}>Log out</Button>
         </div>
       ) : (

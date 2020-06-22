@@ -11,7 +11,7 @@ export const login = (event) => async (dispatch) => {
 
   if (!response.ok) throw new Error()
 
-  const token = await response.json()
+  const { token } = await response.json()
 
   dispatch({
     type: LOGIN_SUCCESS,

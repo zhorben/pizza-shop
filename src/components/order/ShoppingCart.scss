@@ -83,69 +83,9 @@
     }
   }
 
-  .OrderItem {
-    margin: 0 3rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid #e9ebee;
-
-    &__title {
-      color: rgb(49, 49, 49);
-      font-size: 1.8rem;
-      font-weight: bold;
-      font-family: 'Barlow Condensed', sans-serif;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 2.4rem;
-    }
-
-    &__description {
-      color: rgb(122, 133, 141);
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      max-width: 50%;
-    }
-
-    &__icon_remove {
-      width: 1.8rem;
-      cursor: pointer;
-    }
-
-    &__footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 2rem;
-    }
-
-    &__actions {
-      display: flex;
-      border-radius: 0.5rem;
-      overflow: hidden;
-      box-shadow: rgba(189, 187, 187, 0.5) 0px 0px 0.25rem 0px;
-
-      button,
-      div {
-        width: 3.2rem;
-        height: 3.2rem;
-        background-color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      button {
-        cursor: pointer;
-      }
-
-      div {
-        background-color: #f4f4f4;
-      }
-    }
-
-    &__price {
-      font-size: 1.8rem;
-      font-family: 'Barlow Condensed', sans-serif;
-    }
+  &__delivery {
+    font-size: 1.2rem;
+    color: rgb(122, 133, 141);
+    margin: 1rem 0 0;
   }
 }
