@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "pizza-zhorben",
-      "script": "server.js",
+      "script": "server/index.js",
       "instances": 1,
       "max_memory_restart": "2G",
       "kill_timeout": 5000,
