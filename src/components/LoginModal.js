@@ -56,45 +56,36 @@ export default function LoginModal({ isOpen, closeModal }) {
               <Form>
                 <h2 className="LoginModal__title">LOG IN</h2>
 
-                <div className="LoginModal__inputWrapper">
-                  <div className="LoginModal__label">E-MAIL ADDRESS</div>
+                <div className="inputWrapper">
+                  <div className="label">E-MAIL ADDRESS</div>
                   <Field
                     required
                     name="email"
                     type="email"
                     placeholder="e.g. johnsmith@example.com"
-                    className={cx('LoginModal__input', { invalid: errors.email && touched.email })}
+                    className={cx({ invalid: errors.email && touched.email })}
                     validate={(value) => (!value ? 'Required Field' : undefined)}
                   />
-                  <ErrorMessage
-                    name="email"
-                    render={(msg) => <div className="LoginModal__error">{msg}</div>}
-                  />
+                  <ErrorMessage name="email" render={(msg) => <div className="error">{msg}</div>} />
                 </div>
 
                 <div>
-                  <div className="LoginModal__label">PASSWORD</div>
+                  <div className="label">PASSWORD</div>
                   <Field
                     required
                     name="password"
                     type="password"
                     placeholder="*****"
-                    className={cx('LoginModal__input', {
-                      invalid: errors.password && touched.password
-                    })}
+                    className={cx({ invalid: errors.password && touched.password })}
                     validate={(value) => (!value ? 'Required Field' : undefined)}
                   />
                   <ErrorMessage
                     name="password"
-                    render={(msg) => <div className="LoginModal__error">{msg}</div>}
+                    render={(msg) => <div className="error">{msg}</div>}
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={errors.email || errors.password}
-                  className="LoginModal__button"
-                >
+                <button type="submit" disabled={errors.email || errors.password}>
                   Log in
                 </button>
               </Form>

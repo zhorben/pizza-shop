@@ -16,10 +16,14 @@ const productSchema = new mongoose.Schema({
 const orderSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
     ref: 'User'
   },
-  products: [productSchema]
+  products: [productSchema],
+  address: {
+    type: String,
+    required: true
+  },
+  firstName: String
 })
 
 module.exports = connection.model('Order', orderSchema)

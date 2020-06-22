@@ -1,10 +1,9 @@
 import './ProductPage.scss'
 import React from 'react'
-import { goBack } from 'connected-react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { useSpring, animated } from 'react-spring'
 import ShoppingCart from '../order/ShoppingCart'
-import { ReactComponent as BackSVG } from '../../images/back.svg'
+import GoBack from '../common/GoBack'
 
 import { toggleCart } from '../../redux/actions/app'
 import { incrementProduct } from '../../redux/actions/order'
@@ -32,12 +31,7 @@ export default function ProductPage({ match }) {
           maxWidth: springProps.shoppingCartWidth.interpolate((width) => `calc(100% - ${width}px)`)
         }}
       >
-        <div className="ProductPage__block_back">
-          <button onClick={() => dispatch(goBack())}>
-            <BackSVG className="ProductPage__icon_back" />
-            GO BACK
-          </button>
-        </div>
+        <GoBack />
         <div className="ProductPage__wrapper">
           <div className="ProductPage__image">
             <img src={product.images[0]} alt="product" />

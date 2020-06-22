@@ -1,20 +1,6 @@
 .ProductPage {
   display: flex;
 
-  &__block_back {
-    padding: 2rem 3rem;
-    border-bottom: 1px solid rgb(233, 235, 238);
-
-    button {
-      cursor: pointer;
-      font-size: 1.8rem;
-      font-family: 'Barlow Condensed', sans-serif;
-      margin: 0;
-      padding: 0 1rem;
-      background-color: transparent;
-    }
-  }
-
   &__icon_back {
     margin: 0 0.5rem 0 0;
   }

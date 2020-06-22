@@ -66,7 +66,7 @@ export default function ShoppingCart() {
               <span className="ShoppingCart__total_price">{totalPrice} USD</span>
             </div>
             <div className="ShoppingCart__total">
-              {totalPriceEuro && (
+              {!!totalPriceEuro && (
                 <span className="ShoppingCart__total_price">{totalPriceEuro} EUR</span>
               )}
             </div>

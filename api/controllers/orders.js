@@ -4,7 +4,9 @@ const mapOrder = require('../mappers/order')
 module.exports.checkout = async function checkout(ctx, next) {
   const order = await Order.create({
     user: ctx.user,
-    products: ctx.request.body.products
+    products: ctx.request.body.products,
+    address: ctx.request.body.address,
+    firstName: ctx.request.body.firstName
   })
 
   ctx.body = { order: order.id }

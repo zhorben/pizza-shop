@@ -1,4 +1,5 @@
 import './App.scss'
+import './Form.scss'
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import Header from './Header'
@@ -6,6 +7,7 @@ import { Route, Switch } from 'react-router-dom'
 import Home from './home/Home'
 import Account from './account/Account'
 import ProductPage from './product/ProductPage'
+import Checkout from './checkout/Checkout'
 
 import { fetchProducts } from '../redux/actions/products'
 
@@ -23,6 +25,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/account" component={Account} />
+          <Route path="/checkout" component={Checkout} />
           <Route path="/product/:id" component={ProductPage} />
         </Switch>
       </div>

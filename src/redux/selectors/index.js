@@ -13,6 +13,12 @@ export const productsSelector = (state) => state.products.entities
 
 export const loadedProductsSelector = (state) => state.products.loaded
 
+export const productAmountSelector = (id) =>
+  createSelector(
+    orderSelector,
+    (order) => (order.has(id) ? order.get(id) : 0)
+  )
+
 export const productSelector = (id) =>
   createSelector(
     productsSelector,
@@ -47,7 +53,13 @@ export const totalPriceSelector = createSelector(
       (acc, { price, amount }) => acc + price * amount,
       0
     )
+
+    if (productsPrice === 0) {
+      return 0
+    }
+
     const totalPrice = Math.floor((productsPrice + DELIVERY_RATES) * 100) / 100
+
     return totalPrice
   }
 )

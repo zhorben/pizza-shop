@@ -109,6 +109,35 @@
       font-family: 'Barlow Condensed', sans-serif;
     }
 
+    &__actions {
+      margin-left: auto;
+      display: flex;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: rgba(189, 187, 187, 0.5) 0px 0px 0.25rem 0px;
+
+      button,
+      div {
+        width: 3.2rem;
+        height: 3.2rem;
+        background-color: rgb(30, 48, 110);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      button {
+        cursor: pointer;
+        background-color: rgb(30, 48, 110);
+        color: rgb(255, 255, 255);
+      }
+
+      div {
+        background-color: rgb(30, 48, 110);
+        color: #fff;
+      }
+    }
+
     &__button {
       flex: 1;
       background-color: rgb(30, 48, 110);

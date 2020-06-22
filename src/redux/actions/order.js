@@ -54,12 +54,15 @@ export const checkout = (data) => async (dispatch, getState) => {
 
   dispatch({ type: CHECKOUT_REQUEST })
 
+  let headers = { 'Content-Type': 'application/json' }
+
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`
+  }
+
   const response = await fetch('/api/orders', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
-    },
+    headers,
     body: JSON.stringify(data)
   })
 
