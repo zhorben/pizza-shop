@@ -142,7 +142,7 @@
             }),
             r.a.createElement(
               O.d,
-              { initialValues: { email: 'user1@mail.com', password: '123123' }, onSubmit: c },
+              { initialValues: { email: '', password: '' }, onSubmit: c },
               function(e) {
                 var t = e.errors,
                   a = e.touched
@@ -1368,4 +1368,4 @@
   },
   [[81, 1, 2]]
 ])
-//# sourceMappingURL=main.9a90df0d.chunk.js.map
+//# sourceMappingURL=main.9da3ae2e.chunk.js.map
