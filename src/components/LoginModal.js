@@ -1,7 +1,7 @@
+import './LoginModal.scss'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import cx from 'classnames'
-import { css } from 'astroturf'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Modal from 'react-modal'
 import closeIcon from '../images/close.svg'
@@ -28,82 +28,6 @@ const modalStyles = {
   }
 }
 
-const styles = css`
-  .title {
-    font-family: 'Barlow Condensed', sans-serif;
-  }
-
-  .close {
-    height: 2.5rem;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-
-  .button {
-    background-color: rgb(30, 48, 110);
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    font-family: 'Open Sans';
-    font-size: 1.4rem;
-    height: 4.4rem;
-    text-align: center;
-    width: 100%;
-    border-style: none;
-    border-radius: 0.5rem;
-    margin: 2rem 0px 0px;
-    padding: 0px 1rem;
-    transition: background-color 150ms ease-out 0s;
-
-    &:hover {
-      background-color: rgb(82, 102, 153);
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      color: rgb(255, 255, 255);
-      background-color: rgb(30, 48, 110);
-      cursor: not-allowed;
-    }
-  }
-
-  .label {
-    color: rgb(122, 133, 141);
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  .input {
-    width: 100%;
-    display: block;
-    background-color: rgb(248, 248, 249);
-    color: rgb(0, 0, 0);
-    font-family: 'Open Sans';
-    font-size: 1.4rem;
-    height: 4.4rem;
-    border-style: solid;
-    border-color: transparent;
-    border-radius: 0.5rem;
-    padding: 0px 4.4rem 0px 1rem;
-    border-width: 2px;
-
-    &.invalid {
-      border-color: rgb(200, 16, 46);
-    }
-  }
-
-  .error {
-    color: rgb(200, 16, 46);
-    font-size: 1.2rem;
-    margin: 1rem 0px 0px;
-  }
-
-  .inputWrapper {
-    margin-bottom: 2rem;
-  }
-`
-
 export default function LoginModal({ isOpen, closeModal }) {
   const dispatch = useDispatch()
 
@@ -120,66 +44,64 @@ export default function LoginModal({ isOpen, closeModal }) {
       ariaHideApp={false}
       contentLabel="Example Modal"
     >
-      <img className={styles.close} src={closeIcon} onClick={closeModal} />
+      <div className="LoginModal">
+        <img className="LoginModal__icon_close" src={closeIcon} onClick={closeModal} />
 
-      <Formik
-        initialValues={{ email: 'user1@mail.com', password: '123123' }}
-        onSubmit={handleSubmit}
-      >
-        {({ errors, touched }) => {
-          return (
-            <Form>
-              <h2 className={styles.title}>LOG IN</h2>
+        <Formik
+          initialValues={{ email: 'user1@mail.com', password: '123123' }}
+          onSubmit={handleSubmit}
+        >
+          {({ errors, touched }) => {
+            return (
+              <Form>
+                <h2 className="LoginModal__title">LOG IN</h2>
 
-              <div className={styles.inputWrapper}>
-                <div className={styles.label}>E-MAIL ADDRESS</div>
-                <Field
-                  required
-                  name="email"
-                  type="email"
-                  placeholder="e.g. johnsmith@example.com"
-                  className={cx(
-                    styles.input,
-                    errors.email && touched.email && styles.invalid
-                  )}
-                  validate={(value) => (!value ? 'Required Field' : undefined)}
-                />
-                <ErrorMessage
-                  name="email"
-                  render={(msg) => <div className={styles.error}>{msg}</div>}
-                />
-              </div>
+                <div className="LoginModal__inputWrapper">
+                  <div className="LoginModal__label">E-MAIL ADDRESS</div>
+                  <Field
+                    required
+                    name="email"
+                    type="email"
+                    placeholder="e.g. johnsmith@example.com"
+                    className={cx('LoginModal__input', { invalid: errors.email && touched.email })}
+                    validate={(value) => (!value ? 'Required Field' : undefined)}
+                  />
+                  <ErrorMessage
+                    name="email"
+                    render={(msg) => <div className="LoginModal__error">{msg}</div>}
+                  />
+                </div>
 
-              <div>
-                <div className={styles.label}>PASSWORD</div>
-                <Field
-                  required
-                  name="password"
-                  type="password"
-                  placeholder="*****"
-                  className={cx(
-                    styles.input,
-                    errors.password && touched.password && styles.invalid
-                  )}
-                  validate={(value) => (!value ? 'Required Field' : undefined)}
-                />
-                <ErrorMessage
-                  name="password"
-                  render={(msg) => <div className={styles.error}>{msg}</div>}
-                />
-              </div>
+                <div>
+                  <div className="LoginModal__label">PASSWORD</div>
+                  <Field
+                    required
+                    name="password"
+                    type="password"
+                    placeholder="*****"
+                    className={cx('LoginModal__input', {
+                      invalid: errors.password && touched.password
+                    })}
+                    validate={(value) => (!value ? 'Required Field' : undefined)}
+                  />
+                  <ErrorMessage
+                    name="password"
+                    render={(msg) => <div className="LoginModal__error">{msg}</div>}
+                  />
+                </div>
 
-              <button
-                type="submit"
-                disabled={errors.email || errors.password}
-                className={styles.button}
-              >
-                Log in
-              </button>
-            </Form>
-          )
-        }}
-      </Formik>
+                <button
+                  type="submit"
+                  disabled={errors.email || errors.password}
+                  className="LoginModal__button"
+                >
+                  Log in
+                </button>
+              </Form>
+            )
+          }}
+        </Formik>
+      </div>
     </Modal>
   )
 }

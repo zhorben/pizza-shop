@@ -1,7 +1,6 @@
 .App {
   &__content {
     position: relative;
-    padding-top: 5.5rem;
   }
 
   .Header {
@@ -11,8 +10,6 @@
     height: 5.5rem;
     padding: 0 2rem;
     border-bottom: 1px solid #e9ebee;
-    position: fixed;
-    z-index: 106;
     background-color: #f4f4f4;
     width: 100%;
 
