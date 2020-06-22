@@ -11,7 +11,7 @@ module.exports = {
     uri: 'mongodb://localhost/pizza'
   },
   crypto: {
-    iterations: process.env.NODE_ENV === 'production' ? 12000 : 1,
+    iterations: 12000,
     length: 128,
     digest: 'sha512'
   }
