@@ -1,10 +1,9 @@
 const path = require('path')
-const config = require('./config')
+const fs = require('fs')
 const { v4: uuidv4 } = require('uuid')
 const Koa = require('koa')
 const Router = require('koa-router')
 const cors = require('@koa/cors')
-const handleMongooseValidationError = require('./libs/validationErrors')
 const mustBeAuthenticated = require('./libs/mustBeAuthenticated')
 
 const { login } = require('./controllers/login')
@@ -76,8 +75,6 @@ router.post('/orders', checkout)
 app.use(router.routes())
 
 // this for HTML5 history in browser
-// const fs = require('fs')
-
 // const index = fs.readFileSync(path.join(__dirname, 'public/index.html'))
 // app.use(async (ctx) => {
 //   if (ctx.url.startsWith('/api') || ctx.method !== 'GET') return
@@ -86,8 +83,4 @@ app.use(router.routes())
 //   ctx.body = index
 // })
 
-const port = parseInt(config.port, 10) || 3000
-
-app.listen(port, () => {
-  console.log(`App is running on http://localhost:${port}`)
-})
+module.exports = app

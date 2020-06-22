@@ -39,10 +39,10 @@
     "uuid": "^3.3.3"
   },
   "scripts": {
-    "start": "concurrently \"react-app-rewired start\" \"npm run api\"",
+    "start": "concurrently \"npm run start:web\" \"npm run start:api\"",
+    "start:app": "node server/index.js",
     "start:web": "react-app-rewired start",
-    "start:api": "npm run api",
-    "api": "node api/server.js",
+    "start:api": "node server/index.js",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"

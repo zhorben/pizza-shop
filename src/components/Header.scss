@@ -1,0 +1,38 @@
+.Header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.5rem;
+  padding: 0 2rem;
+  z-index: 106;
+  border-bottom: 1px solid #e9ebee;
+  background-color: #f4f4f4;
+  width: 100%;
+
+  .logo {
+    height: 4rem;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 18px;
+    padding: 5px;
+    box-sizing: content-box;
+    margin-right: 2rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__button_account {
+    font-size: 1.4rem;
+    margin-right: 2rem;
+    color: rgb(82, 82, 82);
+    text-decoration: none;
+  }
+}

@@ -11,7 +11,8 @@ import { login } from '../redux/actions/app'
 // http://reactcommunity.org/react-modal/styles/ - default styles
 const modalStyles = {
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.75)'
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    zIndex: 107
   },
   content: {
     top: '50%',
