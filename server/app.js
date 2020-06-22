@@ -75,12 +75,12 @@ router.post('/orders', checkout)
 app.use(router.routes())
 
 // this for HTML5 history in browser
-// const index = fs.readFileSync(path.join(__dirname, 'public/index.html'))
-// app.use(async (ctx) => {
-//   if (ctx.url.startsWith('/api') || ctx.method !== 'GET') return
+const index = fs.readFileSync(path.join(__dirname, 'public/index.html'))
+app.use(async (ctx) => {
+  if (ctx.url.startsWith('/api') || ctx.method !== 'GET') return
 
-//   ctx.set('content-type', 'text/html')
-//   ctx.body = index
-// })
+  ctx.set('content-type', 'text/html')
+  ctx.body = index
+})
 
 module.exports = app
