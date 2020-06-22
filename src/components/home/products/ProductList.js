@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import Product from './Product'
 import { useSpring, animated } from 'react-spring'
 
-import { showCartSelector, productsListSelector } from '../../redux/selectors'
+import { showCartSelector, productsListSelector } from '../../../redux/selectors'
 
 export default function ProductList() {
   const products = useSelector(productsListSelector)

@@ -5,16 +5,16 @@ import { useSpring, animated } from 'react-spring'
 import { format } from 'date-fns'
 import OrderItem from './OrderItem'
 
-import { checkout } from '../../redux/actions/order'
+import { checkout } from '../../../redux/actions/order'
 
 import {
   showCartSelector,
   orderSelector,
   orderedProductsSelector,
   totalPriceSelector
-} from '../../redux/selectors'
+} from '../../../redux/selectors'
 
-import { API_EXCHANGE_URL, FROM_CURRENCY, TO_CURRENCY, DELIVERY_RATES } from '../../constants'
+import { API_EXCHANGE_URL, FROM_CURRENCY, TO_CURRENCY, DELIVERY_RATES } from '../../../constants'
 
 export default function ShoppingCart() {
   const dispatch = useDispatch()

@@ -1,11 +1,11 @@
 import React from 'react'
 import './OrderItem.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { ReactComponent as RemoveSVG } from '../../images/remove.svg'
+import { ReactComponent as RemoveSVG } from '../../../images/remove.svg'
 
-import { incrementProduct, decrementProduct, removeProduct } from '../../redux/actions/order'
+import { incrementProduct, decrementProduct, removeProduct } from '../../../redux/actions/order'
 
-import { productSelector } from '../../redux/selectors'
+import { productSelector } from '../../../redux/selectors'
 
 export default function OrderItem({ id, amount }) {
   const dispatch = useDispatch()
