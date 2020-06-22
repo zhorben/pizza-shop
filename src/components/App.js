@@ -8,6 +8,7 @@ import Home from './home/Home'
 import Account from './account/Account'
 import ProductPage from './product/ProductPage'
 import Checkout from './checkout/Checkout'
+import CheckoutConfirm from './checkout/Confirm'
 
 import { fetchProducts } from '../redux/actions/products'
 
@@ -25,7 +26,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/account" component={Account} />
-          <Route path="/checkout" component={Checkout} />
+          <Route path="/checkout" exact component={Checkout} />
+          <Route path="/checkout/confirm" component={CheckoutConfirm} />
           <Route path="/product/:id" component={ProductPage} />
         </Switch>
       </div>

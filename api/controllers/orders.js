@@ -6,7 +6,8 @@ module.exports.checkout = async function checkout(ctx, next) {
     user: ctx.user,
     products: ctx.request.body.products,
     address: ctx.request.body.address,
-    firstName: ctx.request.body.firstName
+    firstName: ctx.request.body.firstName,
+    email: ctx.request.body.email
   })
 
   ctx.body = { order: order.id }

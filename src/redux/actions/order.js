@@ -1,3 +1,5 @@
+import { push } from 'connected-react-router'
+
 import {
   INCREMENT_PRODUCT,
   DECREMENT_PRODUCT,
@@ -8,6 +10,7 @@ import {
   FETCH_ORDERS_SUCCESS
 } from '../constants'
 
+import { toggleCart } from './app'
 import { tokenSelector } from '../selectors'
 
 export const incrementProduct = (id) => ({
@@ -70,8 +73,9 @@ export const checkout = (data) => async (dispatch, getState) => {
 
   const order = await response.json()
 
-  dispatch({
-    type: CHECKOUT_SUCCESS,
-    payload: order
-  })
+  console.log(order, '--- order')
+
+  dispatch(toggleCart(false))
+  dispatch(push('/checkout/confirm'))
+  dispatch({ type: CHECKOUT_SUCCESS })
 }

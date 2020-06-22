@@ -24,6 +24,8 @@ export default function ShoppingCart() {
   const orderedProducts = useSelector(orderedProductsSelector)
   const totalPrice = useSelector(totalPriceSelector)
 
+  console.log(order.toJS(), '--- order')
+
   useEffect(() => {
     set({ right: showCart ? 0 : -460 })
   }, [showCart])

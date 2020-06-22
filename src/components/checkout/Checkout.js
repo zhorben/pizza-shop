@@ -23,12 +23,16 @@ export default function Checkout() {
     }
   }, [])
 
-  if (products.size === 0) return <Redirect to="/" />
-
   const handleSubmit = async (event) => {
-    if (token) delete event.firstName
+    if (token) {
+      delete event.firstName
+      delete event.email
+    }
+
     dispatch(checkout({ products, ...event }))
   }
+
+  if (products.size === 0) return <Redirect to="/" />
 
   return (
     <div className="Checkout">
@@ -40,18 +44,23 @@ export default function Checkout() {
               <Form>
                 <h2>YOUR DATA</h2>
 
-                <div className="inputWrapper">
-                  <div className="label">E-MAIL ADDRESS*</div>
-                  <Field
-                    required
-                    name="email"
-                    type="email"
-                    placeholder="e.g. johnsmith@example.com"
-                    className={cx({ invalid: errors.email && touched.email })}
-                    validate={(value) => (!value ? 'Required Field' : undefined)}
-                  />
-                  <ErrorMessage name="email" render={(msg) => <div className="error">{msg}</div>} />
-                </div>
+                {!token && (
+                  <div className="inputWrapper">
+                    <div className="label">E-MAIL ADDRESS*</div>
+                    <Field
+                      required
+                      name="email"
+                      type="email"
+                      placeholder="e.g. johnsmith@example.com"
+                      className={cx({ invalid: errors.email && touched.email })}
+                      validate={(value) => (!value ? 'Required Field' : undefined)}
+                    />
+                    <ErrorMessage
+                      name="email"
+                      render={(msg) => <div className="error">{msg}</div>}
+                    />
+                  </div>
+                )}
 
                 {!token && (
                   <div className="inputWrapper">

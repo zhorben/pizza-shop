@@ -23,7 +23,18 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  firstName: String
+  firstName: String,
+  email: {
+    type: String,
+    validate: [
+      {
+        validator(value) {
+          return /^[-.\w]+@([\w-]+\.)+[\w-]{2,12}$/.test(value)
+        },
+        message: 'Некорректный email.'
+      }
+    ]
+  }
 })
 
 module.exports = connection.model('Order', orderSchema)

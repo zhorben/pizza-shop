@@ -20,8 +20,6 @@ export default function Header() {
     window.location.href = '/'
   }
 
-  console.log(pathname, '--- pathname')
-
   return (
     <header className="Header">
       <Link to="/">
