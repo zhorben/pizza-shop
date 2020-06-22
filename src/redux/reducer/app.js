@@ -8,7 +8,7 @@ const OrderRecord = Record({
 })
 
 const ReducerRecord = Record({
-  showCart: true,
+  showCart: false,
   token: localStorage.getItem('token') || null,
   orders: new OrderedMap()
 })

@@ -11,10 +11,13 @@ export const orderSelector = (state) => state.order
 
 export const productsSelector = (state) => state.products.entities
 
+export const loadedProductsSelector = (state) => state.products.loaded
+
 export const productSelector = (id) =>
   createSelector(
     productsSelector,
-    (products) => products.get(id)
+    loadedProductsSelector,
+    (products, loaded) => (loaded ? products.get(id) : null)
   )
 
 export const productsListSelector = createSelector(

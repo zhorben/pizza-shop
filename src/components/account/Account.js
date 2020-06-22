@@ -4,7 +4,6 @@ import History from './History'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchOrders } from '../../redux/actions/order'
-import { fetchProducts } from '../../redux/actions/products'
 import { orderHistorySelector } from '../../redux/selectors'
 
 export default function Account() {
@@ -12,7 +11,6 @@ export default function Account() {
   const orders = useSelector(orderHistorySelector)
 
   useEffect(() => {
-    dispatch(fetchProducts())
     dispatch(fetchOrders())
   }, [])
 

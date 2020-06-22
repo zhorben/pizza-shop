@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { toggleCart } from '../../redux/actions/app'
 import { incrementProduct } from '../../redux/actions/order'
@@ -17,11 +18,11 @@ export default function Product({ id }) {
 
   return (
     <div className="Product">
-      <a className="Product__link_image" href="#">
+      <Link className="Product__link_image" to={`/product/${id}`}>
         <div className="Product__container_image">
           <img className="Product__image" src={images[0]} />
         </div>
-      </a>
+      </Link>
       <div className="Product__content">
         <div className="Product__title">{title}</div>
         <p className="Product__description">{description}</p>

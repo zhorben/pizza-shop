@@ -1,0 +1,100 @@
+.ProductPage {
+  display: flex;
+
+  &__block_back {
+    padding: 2rem 3rem;
+    border-bottom: 1px solid rgb(233, 235, 238);
+
+    button {
+      cursor: pointer;
+      font-size: 1.8rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      margin: 0;
+      padding: 0 1rem;
+      background-color: transparent;
+    }
+  }
+
+  &__icon_back {
+    margin: 0 0.5rem 0 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex: 1;
+  }
+
+  &__image {
+    min-height: calc(100vh - 5.5rem);
+    max-width: 40rem;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    img {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  &__content {
+    padding: 0 2rem;
+    flex: 1;
+  }
+
+  &__title {
+    border-bottom: 1px solid rgb(233, 235, 238);
+    display: flex;
+    align-items: center;
+
+    h2 {
+      color: rgb(49, 49, 49);
+      font-size: 1.8rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 400;
+      padding: 2rem 0;
+      margin: 0;
+    }
+  }
+
+  &__price {
+    margin-left: auto;
+    font-size: 1.8rem;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  h4 {
+    margin: 2rem 0 1rem;
+  }
+
+  &__text {
+    max-width: 60rem;
+  }
+
+  &__button {
+    min-width: 10rem;
+    background-color: rgb(30, 48, 110);
+    color: rgb(255, 255, 255);
+    font-family: 'Open Sans';
+    font-size: 1.4rem;
+    height: 3.6rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin: 0 0 0 1.5rem;
+    padding: 0px 1rem;
+    cursor: pointer;
+    transition: background-color 150ms ease-out 0s;
+
+    &:hover {
+      background-color: rgb(82, 102, 153);
+    }
+  }
+}

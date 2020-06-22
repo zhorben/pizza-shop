@@ -12,18 +12,18 @@ const ProductRecord = Record({
 })
 
 const ReducerRecord = Record({
-  entities: new OrderedMap()
+  entities: new OrderedMap(),
+  loaded: false
 })
 
-export default function reducer(
-  state = new ReducerRecord(),
-  { type, payload }
-) {
+export default function reducer(state = new ReducerRecord(), { type, payload }) {
   switch (type) {
     case FETCH_PRODUCTS_SUCCESS:
-      return state.update('entities', (entities) =>
-        entities.merge(arrToImmutableMap(payload.products, ProductRecord))
-      )
+      return state
+        .update('entities', (entities) =>
+          entities.merge(arrToImmutableMap(payload.products, ProductRecord))
+        )
+        .set('loaded', true)
     default:
       return state
   }
