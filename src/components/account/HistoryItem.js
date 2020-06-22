@@ -1,6 +1,6 @@
 import React from 'react'
 import './HistoryItem.scss'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { productSelector } from '../../redux/selectors'
 

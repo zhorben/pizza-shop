@@ -20,7 +20,7 @@ export default function Product({ id }) {
     <div className="Product">
       <Link className="Product__link_image" to={`/product/${id}`}>
         <div className="Product__container_image">
-          <img className="Product__image" src={images[0]} />
+          <img className="Product__image" src={images[0]} alt="product" />
         </div>
       </Link>
       <div className="Product__content">

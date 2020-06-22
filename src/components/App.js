@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchProducts())
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="App">

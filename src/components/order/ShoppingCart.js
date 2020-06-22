@@ -24,11 +24,9 @@ export default function ShoppingCart() {
   const orderedProducts = useSelector(orderedProductsSelector)
   const totalPrice = useSelector(totalPriceSelector)
 
-  console.log(order.toJS(), '--- order')
-
   useEffect(() => {
     set({ right: showCart ? 0 : -460 })
-  }, [showCart])
+  }, [showCart, set])
 
   const convert = async (value, date) => {
     const dateQuery = format(date, 'yyyy-MM-dd')

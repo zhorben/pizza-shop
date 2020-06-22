@@ -46,7 +46,7 @@ export default function LoginModal({ isOpen, closeModal }) {
       contentLabel="Example Modal"
     >
       <div className="LoginModal">
-        <img className="LoginModal__icon_close" src={closeIcon} onClick={closeModal} />
+        <img className="LoginModal__icon_close" src={closeIcon} onClick={closeModal} alt="close" />
 
         <Formik
           initialValues={{ email: 'user1@mail.com', password: '123123' }}

@@ -21,7 +21,7 @@ export default function Checkout() {
     if (products.size !== 0) {
       dispatch(toggleCart(true))
     }
-  }, [])
+  }, [products.size, dispatch])
 
   const handleSubmit = async (event) => {
     if (token) {

@@ -12,7 +12,7 @@ export default function Account() {
 
   useEffect(() => {
     dispatch(fetchOrders())
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="Account">

@@ -1,4 +1,4 @@
-import { OrderedMap, Record, Set } from 'immutable'
+import { OrderedMap, Record } from 'immutable'
 import { arrToImmutableMap } from '../utils'
 
 import { FETCH_PRODUCTS_SUCCESS } from '../constants'

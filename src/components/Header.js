@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <header className="Header">
       <Link to="/">
-        <img className="logo" src={logo} />
+        <img className="logo" src={logo} alt="logo" />
       </Link>
 
       {token ? (
