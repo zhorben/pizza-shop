@@ -295,10 +295,10 @@
             return a ? t.get(e) : null
           })
         },
-        F = Object(x.a)(z, function(e) {
+        G = Object(x.a)(z, function(e) {
           return e.valueSeq().toArray()
         }),
-        G = Object(x.a)(z, H, function(e, t) {
+        F = Object(x.a)(z, H, function(e, t) {
           return t
             .keySeq()
             .map(function(t) {
@@ -308,7 +308,7 @@
               return { product: e.id, price: e.price, amount: t.get(e.id) }
             })
         }),
-        J = Object(x.a)(G, function(e) {
+        J = Object(x.a)(F, function(e) {
           var t = e.reduce(function(e, t) {
             return e + t.price * t.amount
           }, 0)
@@ -326,8 +326,9 @@
           l = Object(i.e)(function(e) {
             return e.router.location.pathname
           }),
-          p = Object(i.d)(),
-          f = (function() {
+          p = Object(i.e)(F),
+          f = Object(i.d)(),
+          v = (function() {
             var e = Object(s.a)(
               u.a.mark(function e() {
                 return u.a.wrap(function(e) {
@@ -354,37 +355,38 @@
             { to: '/' },
             r.a.createElement('img', { className: 'logo', src: j.a, alt: 'logo' })
           ),
-          o
-            ? r.a.createElement(
-                'div',
-                { className: 'Header__container' },
-                '/account' !== l &&
-                  r.a.createElement(
-                    r.a.Fragment,
-                    null,
-                    r.a.createElement(
-                      d.a,
-                      { className: 'Header__button_account', to: '/account' },
-                      'Account'
-                    ),
-                    r.a.createElement(M, {
-                      className: 'Header__icon',
-                      onClick: function() {
-                        return p(A())
-                      }
-                    })
-                  ),
-                r.a.createElement(E, { onClick: f }, 'Log out')
-              )
-            : r.a.createElement(
-                E,
-                {
-                  onClick: function() {
-                    return c(!0)
-                  }
-                },
-                'Log in'
+          r.a.createElement(
+            'div',
+            { className: 'Header__container' },
+            o &&
+              '/account' !== l &&
+              r.a.createElement(
+                d.a,
+                { className: 'Header__button_account', to: '/account' },
+                'Account'
               ),
+            r.a.createElement(
+              'div',
+              { className: 'Header__icon' },
+              r.a.createElement(M, {
+                onClick: function() {
+                  return f(A())
+                }
+              }),
+              p.size > 0 && r.a.createElement('span', null, p.size)
+            ),
+            o
+              ? r.a.createElement(E, { onClick: v }, 'Log out')
+              : r.a.createElement(
+                  E,
+                  {
+                    onClick: function() {
+                      return c(!0)
+                    }
+                  },
+                  'Log in'
+                )
+          ),
           r.a.createElement(N, {
             isOpen: a,
             closeModal: function() {
@@ -481,7 +483,7 @@
               {
                 className: 'Product__button',
                 onClick: function() {
-                  a(Y(t)), a(A(!0))
+                  a(Y(t))
                 }
               },
               'Add'
@@ -491,7 +493,7 @@
       }
       var $ = a(29)
       function ee() {
-        var e = Object(i.e)(F),
+        var e = Object(i.e)(G),
           t = Object(i.e)(T),
           a = Object($.useSpring)({ shoppingCartWidth: t ? 460 : 0 })
         return r.a.createElement(
@@ -637,6 +639,59 @@
         )
       }
       function le() {
+        return (le =
+          Object.assign ||
+          function(e) {
+            for (var t = 1; t < arguments.length; t++) {
+              var a = arguments[t]
+              for (var n in a) Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n])
+            }
+            return e
+          }).apply(this, arguments)
+      }
+      function ue(e, t) {
+        if (null == e) return {}
+        var a,
+          n,
+          r = (function(e, t) {
+            if (null == e) return {}
+            var a,
+              n,
+              r = {},
+              c = Object.keys(e)
+            for (n = 0; n < c.length; n++) (a = c[n]), t.indexOf(a) >= 0 || (r[a] = e[a])
+            return r
+          })(e, t)
+        if (Object.getOwnPropertySymbols) {
+          var c = Object.getOwnPropertySymbols(e)
+          for (n = 0; n < c.length; n++)
+            (a = c[n]),
+              t.indexOf(a) >= 0 ||
+                (Object.prototype.propertyIsEnumerable.call(e, a) && (r[a] = e[a]))
+        }
+        return r
+      }
+      var se = r.a.createElement('path', { d: 'M32 13.638h-26.621v4.841h26.621z' }),
+        me = r.a.createElement('path', {
+          d: 'M18.827 5.746l-3.266-3.574-15.561 14.222 14.697 13.433 3.266-3.573-10.788-9.86z'
+        }),
+        de = function(e) {
+          var t = e.svgRef,
+            a = e.title,
+            n = ue(e, ['svgRef', 'title'])
+          return r.a.createElement(
+            'svg',
+            le({ height: 12, viewBox: '0 0 32 32', ref: t }, n),
+            a ? r.a.createElement('title', null, a) : null,
+            se,
+            me
+          )
+        },
+        pe = r.a.forwardRef(function(e, t) {
+          return r.a.createElement(de, le({ svgRef: t }, e))
+        })
+      a.p
+      function Ee() {
         var e = Object(i.d)(),
           t = Object(n.useState)(null),
           a = Object(m.a)(t, 2),
@@ -650,7 +705,7 @@
           E = d[1],
           f = Object(i.e)(T),
           v = Object(i.e)(H),
-          O = Object(i.e)(G),
+          O = Object(i.e)(F),
           h = Object(i.e)(J)
         Object(n.useEffect)(
           function() {
@@ -708,7 +763,17 @@
               'div',
               { className: 'ShoppingCart__title' },
               'YOUR CART ',
-              O.size > 0 && '('.concat(v.size, ')')
+              O.size > 0 && '('.concat(v.size, ')'),
+              r.a.createElement(
+                'button',
+                {
+                  className: 'ShoppingCart__button_close',
+                  onClick: function() {
+                    return e(A(!1))
+                  }
+                },
+                r.a.createElement(pe, null)
+              )
             ),
             O.size > 0
               ? r.a.createElement(
@@ -780,16 +845,16 @@
           )
         )
       }
-      function ue() {
+      function fe() {
         return r.a.createElement(
           r.a.Fragment,
           null,
           r.a.createElement(ee, null),
-          r.a.createElement(le, null)
+          r.a.createElement(Ee, null)
         )
       }
       a(110), a(111)
-      function se(e) {
+      function ve(e) {
         var t = e.id,
           a = e.amount,
           n = Object(i.e)(Q(t)),
@@ -807,7 +872,7 @@
           )
         )
       }
-      function me(e) {
+      function Oe(e) {
         var t,
           a = e.order,
           n = Object(i.e)(
@@ -827,7 +892,7 @@
           a.products.map(function(e) {
             var t = e.product,
               a = e.amount
-            return r.a.createElement(se, { key: t.id, id: t.id, amount: a, isOrderHistory: !0 })
+            return r.a.createElement(ve, { key: t.id, id: t.id, amount: a, isOrderHistory: !0 })
           }),
           r.a.createElement(
             'div',
@@ -841,7 +906,7 @@
           )
         )
       }
-      function de() {
+      function he() {
         var e = Object(i.d)(),
           t = Object(i.e)(K)
         return (
@@ -897,65 +962,12 @@
             { className: 'Account' },
             r.a.createElement('div', { className: 'Account__title' }, 'YOUR ORDERS'),
             t.map(function(e) {
-              return r.a.createElement(me, { key: e.id, order: e })
+              return r.a.createElement(Oe, { key: e.id, order: e })
             })
           )
         )
       }
       a(112), a(113)
-      function pe() {
-        return (pe =
-          Object.assign ||
-          function(e) {
-            for (var t = 1; t < arguments.length; t++) {
-              var a = arguments[t]
-              for (var n in a) Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n])
-            }
-            return e
-          }).apply(this, arguments)
-      }
-      function Ee(e, t) {
-        if (null == e) return {}
-        var a,
-          n,
-          r = (function(e, t) {
-            if (null == e) return {}
-            var a,
-              n,
-              r = {},
-              c = Object.keys(e)
-            for (n = 0; n < c.length; n++) (a = c[n]), t.indexOf(a) >= 0 || (r[a] = e[a])
-            return r
-          })(e, t)
-        if (Object.getOwnPropertySymbols) {
-          var c = Object.getOwnPropertySymbols(e)
-          for (n = 0; n < c.length; n++)
-            (a = c[n]),
-              t.indexOf(a) >= 0 ||
-                (Object.prototype.propertyIsEnumerable.call(e, a) && (r[a] = e[a]))
-        }
-        return r
-      }
-      var fe = r.a.createElement('path', { d: 'M32 13.638h-26.621v4.841h26.621z' }),
-        ve = r.a.createElement('path', {
-          d: 'M18.827 5.746l-3.266-3.574-15.561 14.222 14.697 13.433 3.266-3.573-10.788-9.86z'
-        }),
-        Oe = function(e) {
-          var t = e.svgRef,
-            a = e.title,
-            n = Ee(e, ['svgRef', 'title'])
-          return r.a.createElement(
-            'svg',
-            pe({ height: 12, viewBox: '0 0 32 32', ref: t }, n),
-            a ? r.a.createElement('title', null, a) : null,
-            fe,
-            ve
-          )
-        },
-        he = r.a.forwardRef(function(e, t) {
-          return r.a.createElement(Oe, pe({ svgRef: t }, e))
-        })
-      a.p
       function ge() {
         var e = Object(i.d)()
         return r.a.createElement(
@@ -968,7 +980,7 @@
                 return e(Object(X.c)())
               }
             },
-            r.a.createElement(he, { className: 'ProductPage__icon_back' }),
+            r.a.createElement(pe, { className: 'ProductPage__icon_back' }),
             'GO BACK'
           )
         )
@@ -1026,14 +1038,14 @@
               )
             )
           ),
-          r.a.createElement(le, null)
+          r.a.createElement(Ee, null)
         )
       }
       var Ce = a(78)
       a(114)
       function ye() {
         var e = Object(i.d)(),
-          t = Object(i.e)(G),
+          t = Object(i.e)(F),
           a = Object(i.e)(U),
           c = Object(i.e)(J)
         Object(n.useEffect)(
@@ -1160,7 +1172,7 @@
                   }
                 )
               ),
-              r.a.createElement(le, null)
+              r.a.createElement(Ee, null)
             )
       }
       function Ae() {
@@ -1176,7 +1188,7 @@
               { className: 'Checkout__text' },
               'Congratulations! Your order has been placed.'
             ),
-            r.a.createElement(le, null)
+            r.a.createElement(Ee, null)
           )
         )
       }
@@ -1228,8 +1240,8 @@
               r.a.createElement(
                 V.d,
                 null,
-                r.a.createElement(V.b, { path: '/', exact: !0, component: ue }),
-                r.a.createElement(V.b, { path: '/account', component: de }),
+                r.a.createElement(V.b, { path: '/', exact: !0, component: fe }),
+                r.a.createElement(V.b, { path: '/account', component: he }),
                 r.a.createElement(V.b, { path: '/checkout', exact: !0, component: ye }),
                 r.a.createElement(V.b, { path: '/checkout/confirm', component: Ae }),
                 r.a.createElement(V.b, { path: '/product/:id', component: be })
@@ -1368,4 +1380,4 @@
   },
   [[81, 1, 2]]
 ])
-//# sourceMappingURL=main.9da3ae2e.chunk.js.map
+//# sourceMappingURL=main.1fdc29d3.chunk.js.map

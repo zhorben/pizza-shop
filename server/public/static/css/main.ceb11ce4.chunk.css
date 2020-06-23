@@ -77,16 +77,35 @@ form button[type='submit']:disabled {
   align-items: center;
 }
 .Header__icon {
-  width: 24px;
-  height: 18px;
-  padding: 5px;
-  box-sizing: content-box;
   margin-right: 2rem;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  padding: 5px;
+  box-sizing: content-box;
+  position: relative;
+}
+.Header__icon svg {
+  width: 24px;
+  height: 18px;
+}
+.Header__icon span {
+  position: absolute;
+  top: calc(-1.1rem + 2px);
+  padding: 0 0.3rem;
+  right: calc(-0.7rem + 2px);
+  min-width: 2.2rem;
+  min-height: 2.2rem;
+  font-size: 1rem;
+  color: #1e306e;
+  background-color: #f6db86;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .Header__button_account {
   font-size: 1.4rem;
@@ -118,7 +137,7 @@ form button[type='submit']:disabled {
 }
 .ProductList {
   padding: 4.5rem 2rem;
-  max-width: 112rem;
+  max-width: calc(100% - 460px - 10rem);
   position: absolute;
   left: 50%;
   top: 5.5rem;
@@ -272,6 +291,15 @@ form button[type='submit']:disabled {
   border-bottom: 1px solid #e9ebee;
   font-size: 1.8rem;
   font-family: 'Barlow Condensed', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ShoppingCart__button_close {
+  background-color: transparent;
+  transform: rotate(180deg);
+  cursor: pointer;
+  padding: 0 2rem;
 }
 .ShoppingCart__list {
   display: flex;
@@ -593,4 +621,4 @@ button span {
 button:focus {
   outline: none;
 }
-/*# sourceMappingURL=main.d3dcca13.chunk.css.map */
+/*# sourceMappingURL=main.ceb11ce4.chunk.css.map */
