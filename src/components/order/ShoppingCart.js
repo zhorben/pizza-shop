@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useSpring, animated } from 'react-spring'
 import { format } from 'date-fns'
 import OrderItem from './OrderItem'
+import { ReactComponent as BackSVG } from '../../images/back.svg'
+
+import { toggleCart } from '../../redux/actions/app'
 
 import {
   showCartSelector,
@@ -51,6 +54,9 @@ export default function ShoppingCart() {
     <animated.div className="ShoppingCart" style={springProps}>
       <div className="ShoppingCart__title">
         YOUR CART {orderedProducts.size > 0 && `(${order.size})`}
+        <button className="ShoppingCart__button_close" onClick={() => dispatch(toggleCart(false))}>
+          <BackSVG />
+        </button>
       </div>
 
       {orderedProducts.size > 0 ? (

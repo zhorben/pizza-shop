@@ -17,6 +17,16 @@
     border-bottom: 1px solid #e9ebee;
     font-size: 1.8rem;
     font-family: 'Barlow Condensed', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__button_close {
+    background-color: transparent;
+    transform: rotate(180deg);
+    cursor: pointer;
+    padding: 0 2rem;
   }
 
   &__list {

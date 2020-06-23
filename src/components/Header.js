@@ -8,12 +8,13 @@ import logo from '../images/logo.png'
 import { ReactComponent as CartSVG } from '../images/cart.svg'
 
 import { toggleCart } from '../redux/actions/app'
-import { tokenSelector } from '../redux/selectors'
+import { tokenSelector, orderedProductsSelector } from '../redux/selectors'
 
 export default function Header() {
   const [isOpen, toggleModal] = useState(false)
   const token = useSelector(tokenSelector)
   const pathname = useSelector((state) => state.router.location.pathname)
+  const orderedProducts = useSelector(orderedProductsSelector)
   const dispatch = useDispatch()
 
   const logout = async () => {
@@ -27,22 +28,24 @@ export default function Header() {
         <img className="logo" src={logo} alt="logo" />
       </Link>
 
-      {token ? (
-        <div className="Header__container">
-          {pathname !== '/account' && (
-            <React.Fragment>
-              <Link className="Header__button_account" to="/account">
-                Account
-              </Link>
-              <CartSVG className="Header__icon" onClick={() => dispatch(toggleCart())} />
-            </React.Fragment>
-          )}
+      <div className="Header__container">
+        {token && pathname !== '/account' && (
+          <Link className="Header__button_account" to="/account">
+            Account
+          </Link>
+        )}
 
-          <Button onClick={logout}>Log out</Button>
+        <div className="Header__icon">
+          <CartSVG onClick={() => dispatch(toggleCart())} />
+          {orderedProducts.size > 0 && <span>{orderedProducts.size}</span>}
         </div>
-      ) : (
-        <Button onClick={() => toggleModal(true)}>Log in</Button>
-      )}
+
+        {token ? (
+          <Button onClick={logout}>Log out</Button>
+        ) : (
+          <Button onClick={() => toggleModal(true)}>Log in</Button>
+        )}
+      </div>
 
       <LoginModal isOpen={isOpen} closeModal={() => toggleModal(false)} />
     </header>

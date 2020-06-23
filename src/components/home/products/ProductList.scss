@@ -1,6 +1,6 @@
 .ProductList {
   padding: 4.5rem 2rem;
-  max-width: 112rem;
+  max-width: calc(100% - 460px - 10rem);
   position: absolute;
   left: 50%;
   top: 5.5rem;

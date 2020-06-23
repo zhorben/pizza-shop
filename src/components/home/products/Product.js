@@ -2,7 +2,6 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { toggleCart } from '../../../redux/actions/app'
 import { incrementProduct } from '../../../redux/actions/order'
 
 import { productSelector } from '../../../redux/selectors'
@@ -13,7 +12,6 @@ export default function Product({ id }) {
 
   const handleClick = () => {
     dispatch(incrementProduct(id))
-    dispatch(toggleCart(true))
   }
 
   return (
